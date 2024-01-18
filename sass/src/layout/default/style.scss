@@ -1,0 +1,14 @@
+@use '../../lib/service.scss' as s;
+
+.page {
+  font-family: 'Roboto', sans-serif;
+  font-size: s.size();
+  background-color: s.color('background');
+}
+
+$contentSizeMap: (
+  desktop: 1100px,
+  laptop: 900px,
+  tablet: 700px,
+  mobile: 500px,
+);

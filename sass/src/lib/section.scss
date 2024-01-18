@@ -1,0 +1,35 @@
+@use './space.scss' as s;
+@use './var.scss' as var;
+
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 0 s.space(4);
+}
+
+$contentSizeMap: (
+  desktop: 1100px,
+  laptop: 900px,
+  tablet: 700px,
+  mobile: 500px,
+);
+
+.section__content {
+  max-width: 1200px;
+  width: 100%;
+
+  @each $key, $value in var.$screenMap {
+    @media all and (width < $value) {
+      max-width: map-get($contentSizeMap, $key);
+    }
+  }
+}
+
+.section__double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media all and (width < var.screen('laptop')) {
+    grid-template-columns: 1fr;
+  }
+}
